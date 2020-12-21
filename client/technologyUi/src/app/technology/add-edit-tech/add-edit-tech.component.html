@@ -1,0 +1,9 @@
+<div class="form-group row">
+    <label>Technology Name</label>
+    <input type="text" class="form-control" [(ngModel)]="Name"/>
+    <input type="text" class="form-control" [(ngModel)]="Description"/>
+    <button (click)="addTechnology()" *ngIf="tech.Id==0">Add</button>
+    <button (click)="updateTechnology()" *ngIf="tech.Id!=0">Update</button>
+
+
+</div>

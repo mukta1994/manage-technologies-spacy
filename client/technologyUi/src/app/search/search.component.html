@@ -1,0 +1,20 @@
+<div class="row col-md-12">
+    <div class="col-md-8">
+        <input type="text" class="form-control" [(ngModel)]="queryStr" />
+    </div>
+    <button class="col-md-2" (click)="refreshResultList(queryStr)">Search</button>
+</div>
+
+    <div class="card" *ngFor="let item of SearchResults" style="margin: 4px;">
+            <div class="card-body">
+              <h5 class="card-title">{{item.name}}</h5>
+              <p class="card-text">{{item.description}}</p>
+              <button (click)=generateChunks(item) class="btn btn-primary float-right m-2">generate noun chunks</button>
+            </div>
+            <div *ngIf="Id==item.id" >
+                    <hr>
+                    <div *ngFor="let chunk of Chunks"  >
+                           <h5>{{chunk}}</h5> 
+                        </div>
+            </div>
+          </div>

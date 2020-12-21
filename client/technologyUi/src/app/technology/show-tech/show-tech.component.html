@@ -1,0 +1,47 @@
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary float-right m-2" data-bs-toggle="modal" data-bs-target="#exampleModal"
+(click)="addClick()" data-backdrop="static" data-keyboard="false" style="float: right">
+        Add Technology
+      </button>
+      
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">{{ModalTitle}}</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="closeClick()"></button>
+            </div>
+            <div class="modal-body">
+              <app-add-edit-tech [tech]="tech" *ngIf="ActivateAddEditComp"></app-add-edit-tech>
+            </div>
+          </div>
+        </div>
+      </div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                    Actions
+                </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of TechnologyList">
+            <td>{{item.name}}</td>
+            <td>{{item.description}}</td>
+            <td><button data-bs-toggle="modal" data-bs-target="#exampleModal"
+                (click)="editClick(item)" data-backdrop="static" data-keyboard="false"> edit</button>
+                <button data-bs-toggle="modal" data-bs-target="#exampleModal"
+                 data-backdrop="static" data-keyboard="false"> delete</button></td>
+        </tr>
+    </tbody>
+
+</table>
