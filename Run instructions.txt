@@ -1,0 +1,107 @@
+1.Mysql
+I used Mysql database.
+create a new schema and import sql file (technology_database.sql) 
+refresh and check. Database will be created.
+
+
+2. .net core
+    webApi folder contains rest api using .net core(c#)
+   // Go to the folder webApi in the terminal using following commands and run
+
+     cd webApi
+ 
+   // In webApi folder go to appsetting.json and change defaultConnection value with your mysql database info
+
+     dotnet run
+
+    // Project starts running on local host server https://localhost:5001/ 
+    // you can test apis using Postman
+     API:
+     Create technology
+     POST https://localhost:5001/api/technology
+   input(body): { "Name": "Artificial Intelligence", "Description": "Artificial intelligence, is intelligence demonstrated by machines, unlike the natural intelligence displayed by humans and animals." }
+    Technology is created
+
+    POST https://localhost:5001/api/technology
+    //input(body):
+     { "Name": "Spacy", "escription": "spaCy is designed to help you do real work — to build real products, 
+        or gather real insights." }
+    //output
+    Technology is created
+
+
+    Read/get technologies with the limit 10 records per page
+    GET https://localhost:5001/api/technology/1/10
+    where 1 is page number and 10 is records per page
+    // Output:
+    gets all technologies which are inserted 
+
+    Delete technology using id(which is 1 in below url)
+    DELETE https://localhost:5001/api/technology/1
+    // technology with id 1 is deleted
+
+    Updates technology using id and pass data
+    PUT https://localhost:5001/api/technology/2
+    inout(body): { "Name": "Spacy", "escription": "spaCy is designed to help you do real work — to build real products, 
+        or gather real revised." }
+        output:updates technology
+
+    Get the specific technology details using id
+    GET https://localhost:5001/api/technology/detail/2
+    output: { "Name": "Spacy", "escription": "spaCy is designed to help you do real work — to build real products, 
+        or gather real revised" }
+
+
+3. Python api to get the noun chunks using spaCy
+     API is created to get the noun chunks of text passed using spacy.
+     Python3 is used with version 3.9.1 and spacy is used with model  en_core_web_lg
+         Follow the steps mentioned below to run: 
+        // Install virual environment:
+            python3 -m pip install virtualenv
+
+         //create the virtual environment :(3.9.1 can be replaced by your python version)
+            virtualenv -p python3.9.1 venv
+
+        //Activate the virtual environment:
+            source venv/bin/activate
+
+       // Install the requirements : 
+        pip install -r requirements.txt
+
+       // Run the project:
+        python app.py
+
+        // Project starts running on local host server http://0.0.0.0:5005/
+
+        Check the api using Postman
+
+        POST  http://0.0.0.0:5005/
+        //input(body)
+        {
+            "text":"AI refers to the programmed algorithms that automatically parse and apply knowledge. From security to sales applications within businesses of all sizes, AI is the largest force in emerging technology today."
+        }
+       // Output
+        [
+    "AI",
+    "the programmed algorithms",
+    "knowledge",
+    "security",
+    "sales applications",
+    "businesses",
+    "all sizes",
+    "AI",
+    "the largest force",
+    "emerging technology"
+]
+
+
+4.Angular10
+client folder contains front end part of the application using angular 10.
+    Follow the steps mentioned below: 
+    Open terminal run commands:
+    go to the folder technologyUi- use below commonds:
+        cd client/technologyUi
+        npm install
+        ng serve
+
+    Project starts running on http://localhost:4200/
