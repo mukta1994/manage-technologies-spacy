@@ -1,16 +1,35 @@
-<div class="container">
-  <nav class="navbar navbar-expand-sm bg-light navbar-dark">
-<ul class="navbar nav">
-  <li class="nav-item" style="padding:5px">
-<button routerLink="technology" class="m1 btn btn-light btn-outline-primary" Button>Technology</button>
-  </li>
-  <li class="nav-item">
-      <button routerLink="search" class="m1 btn btn-light btn-outline-primary" Button>Search</button>
-        </li>
-</ul>
+    <mat-toolbar color="primary">
+        <mat-toolbar-row>
+          <button mat-icon-button>
+            <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+            <!-- (click)="sidenav.toggle()" -->
+          </button>
+          <span class="menu-spacer"></span>
+          <div class="nav-buttons">
+            <a mat-button [routerLink]="['','technology']" [routerLinkActive]="['is-active']"> Home </a> 
+            <div class="tabs">
+            <a mat-button [routerLink]="['','technology']" [routerLinkActive]="['is-active']"> Technology</a> 
+            <a mat-button [routerLink]="['','search','']" [routerLinkActive]="['is-active']"> Search</a> 
+          </div>
+          </div>
+        </mat-toolbar-row>
+      </mat-toolbar>
+      <mat-sidenav-container>
+          <mat-sidenav #sidenav>
+            <mat-nav-list class="nav-buttons">   
+              <a mat-list-item [routerLink]="['','technology']" [routerLinkActive]="['is-active']" (click)="sidenav.toggle()"> Home </a>  
+              <a mat-list-item [routerLink]="['','technology']" [routerLinkActive]="['is-active']" (click)="sidenav.toggle()"> Technology</a> 
+            <a mat-list-item [routerLink]="['','search','']" [routerLinkActive]="['is-active']" (click)="sidenav.toggle()"> Search</a> 
+              <a mat-list-item (click)="sidenav.toggle()" mat-list-item>Close</a>    
+            </mat-nav-list>
+          </mat-sidenav>
+          <mat-sidenav-content>
+            <div class="container" style="padding-top:5px; min-height:80%">   
+              <router-outlet></router-outlet>
+            </div>
+          </mat-sidenav-content>
+        </mat-sidenav-container>
 
-  </nav>
-
-
-<router-outlet></router-outlet>
-</div>
+        <div class="container">
+            <router-outlet></router-outlet>
+          </div>

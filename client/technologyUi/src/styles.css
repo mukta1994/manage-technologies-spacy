@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.modal-dialog{
+    width:60%;
+    max-width: 70%!important;
+}
+
+.modal-title{
+    font-size: 22px!important;
+}
+
+p{
+    font-size: 18px;
+}
+
+.disabled{
+    font-size: 24px;
+}
+
+*:focus, *:active {
+    outline: none;
+}

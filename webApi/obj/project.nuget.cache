@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "uHOXmI/6IGfr/7qwvii3QIdpX8L9TqDNllXztUTM471HQN+4v/xuYoGgmYA9EIpx0oFxEz8EziK3ns/68KNG/Q==",
+  "dgSpecHash": "vh5/AQypDmY8NraMjBxiaVryIuw02UwLLF1ab2LkARQ6liTa24XVzfBtpGxseMqeitpFZ1eorODicVS2w0Yv+Q==",
   "success": true,
-  "projectFilePath": "/Users/mukta/Documents/myProjects/technologies/webApi/technologies.csproj",
+  "projectFilePath": "/Users/mukta/Documents/myProjects/manage-technologies/webApi/technologies.csproj",
   "expectedPackageFiles": [
     "/Users/mukta/.nuget/packages/bouncycastle.netcore/1.8.3/bouncycastle.netcore.1.8.3.nupkg.sha512",
     "/Users/mukta/.nuget/packages/google.protobuf/3.11.4/google.protobuf.3.11.4.nupkg.sha512",

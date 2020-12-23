@@ -1,0 +1,41 @@
+.description{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+
+button {
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 16px;
+  }
+  
+  button:hover {
+    background-color: #586559;
+    color: white;
+  }
+
+button{
+    color: white;
+    text-decoration: none;
+}
+
+  
+  .next ,.previous {
+    background-color: #f1f1f1;
+    color: black;
+  }
+  
+  .round {
+    border-radius: 50%;
+  }
+
+  button.next, button.previous{
+      font-size: 35px;
+  }
+
+  input:focus, textarea:focus, select:focus, button:focus{
+    outline: none;
+}

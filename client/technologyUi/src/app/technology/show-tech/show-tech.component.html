@@ -1,9 +1,46 @@
 
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary float-right m-2" data-bs-toggle="modal" data-bs-target="#exampleModal"
-(click)="addClick()" data-backdrop="static" data-keyboard="false" style="float: right">
-        Add Technology
-      </button>
+<div class="row" style="display: flex;justify-content:flex-end">
+    <button type="button" class="btn btn-primary float-right m-2" data-bs-toggle="modal" data-bs-target="#exampleModal"
+    (click)="addClick()"  style="width: auto">
+            Add Technology
+          </button>
+</div>
+<div *ngFor="let item of TechnologyList" style="margin: 4px;">
+    <div class="jumbotron">
+      <h1 class="display-4">{{item.name}}</h1>
+      <p class="description">
+        {{item.description}}</p>
+      <p class="lead">
+        <button class="btn btn-primary float-right m-2"[routerLink]="['/detail', item.id]" >view</button>
+        <button data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-primary float-right m-2"
+        (click)="editClick(item)"> edit</button>
+        <button (click)=deleteClick(item) class="btn btn-primary float-right m-2"
+         data-backdrop="static" data-keyboard="false"> delete</button>
+      </p>
+      <hr class="my-4">
+    </div>
+</div>
+<div class="row" style="display: flex;justify-content:center; padding-bottom: 30px">
+    <!-- <button type="button" class="btn  float-right m-2" *ngIf="page_num>1" 
+    (click)="pagination('Previous')"  style="width: auto">
+           Previous
+          </button> -->
+          <button href="#" class="previous round" *ngIf="page_num>1" 
+              (click)="pagination('Previous')"  style="width: auto">&#8249;</button>
+<button class="next round" *ngIf="page_num<tot_pages"
+    (click)="pagination('Next')"  style="width: auto">&#8250;</button>
+    <!-- <button  class="previous" *ngIf="page_num>1" 
+        (click)="pagination('Previous')"  style="width: auto">&laquo; Previous</button>
+<button class="next"  *ngIf="page_num<tot_pages"
+(click)="pagination('Next')"  style="width: auto">Next &raquo;</button> -->
+
+          <!-- <button type="button" class="btn float-right m-2" 
+    (click)="pagination('Next')"  style="width: auto" *ngIf="page_num<tot_pages">
+          Next
+          </button> -->
+</div>
+
       
       <!-- Modal -->
       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -11,7 +48,7 @@
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">{{ModalTitle}}</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="closeClick()"></button>
+              <button type="button" id="closebutton" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="closeClick()"></button>
             </div>
             <div class="modal-body">
               <app-add-edit-tech [tech]="tech" *ngIf="ActivateAddEditComp"></app-add-edit-tech>
@@ -19,29 +56,4 @@
           </div>
         </div>
       </div>
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>
-                Name
-            </th>
-            <th>
-                Description
-            </th>
-            <th>
-                    Actions
-                </th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let item of TechnologyList">
-            <td>{{item.name}}</td>
-            <td>{{item.description}}</td>
-            <td><button data-bs-toggle="modal" data-bs-target="#exampleModal"
-                (click)="editClick(item)" data-backdrop="static" data-keyboard="false"> edit</button>
-                <button data-bs-toggle="modal" data-bs-target="#exampleModal"
-                 data-backdrop="static" data-keyboard="false"> delete</button></td>
-        </tr>
-    </tbody>
 
-</table>

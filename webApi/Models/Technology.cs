@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Data;
 using System.Threading.Tasks;
 using MySqlConnector;
@@ -24,26 +25,24 @@ namespace WebApi.Models
         public async Task InsertAsync()
         {
             using var cmd = Db.Connection.CreateCommand();
-            cmd.CommandText = @"INSERT INTO `Technologies` (`Name`, `Description`) VALUES (@name, @description);";
-            BindParams(cmd);
+            Id=0;
+            executeStoredProcedure(cmd,"INSERT");
             await cmd.ExecuteNonQueryAsync();
-            Id = (int) cmd.LastInsertedId;
         }
 
         public async Task UpdateAsync()
         {
-            using var cmd = Db.Connection.CreateCommand();
-            cmd.CommandText = @"UPDATE `Technologies` SET `Name` = @name, `Description` = @description WHERE `Id` = @id;";
-            BindParams(cmd);
-            BindId(cmd);
+             using var cmd = Db.Connection.CreateCommand();
+            executeStoredProcedure(cmd,"UPDATE");
             await cmd.ExecuteNonQueryAsync();
         }
 
         public async Task DeleteAsync()
         {
             using var cmd = Db.Connection.CreateCommand();
-            cmd.CommandText = @"DELETE FROM `Technologies` WHERE `Id` = @id;";
-            BindId(cmd);
+            Name=null;
+            Description=null;
+            executeStoredProcedure(cmd,"DELETE");
             await cmd.ExecuteNonQueryAsync();
         }
 
@@ -51,7 +50,7 @@ namespace WebApi.Models
         {
             cmd.Parameters.Add(new MySqlParameter
             {
-                ParameterName = "@id",
+                ParameterName = "@tId",
                 DbType = DbType.Int32,
                 Value = Id,
             });
@@ -61,16 +60,32 @@ namespace WebApi.Models
         {
             cmd.Parameters.Add(new MySqlParameter
             {
-                ParameterName = "@name",
+                ParameterName = "@tName",
                 DbType = DbType.String,
                 Value = Name,
             });
             cmd.Parameters.Add(new MySqlParameter
             {
-                ParameterName = "@description",
+                ParameterName = "@tDescription",
                 DbType = DbType.String,
                 Value = Description,
             });
         }
+
+        public void executeStoredProcedure(MySqlCommand cmd,string action){
+              cmd.CommandText = "Technology_Create_Update_delete";
+             BindParams(cmd);
+             BindId(cmd);
+             cmd.Parameters.AddWithValue("@tAction", @action);
+            cmd.CommandType = CommandType.StoredProcedure;
+        }
+    }
+
+    public class Pages
+    {
+        public int total_pages { get; set; }       
+        public List<Technology> technologies { get; set; }
     }
 }
+
+

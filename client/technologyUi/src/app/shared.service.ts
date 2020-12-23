@@ -11,8 +11,12 @@ export class SharedService {
 
   constructor(private http:HttpClient) { }
 
-  getTechnologyList():Observable<any[]>{
-    return this.http.get<any>(this.ApiUrl+"/technology");
+  getTechnologyList(page_num:number,rec_per_page:number){
+    return this.http.get<any>(this.ApiUrl+"/technology/"+page_num+"/"+rec_per_page);
+  }
+
+  getTechnologyDetail(id:number){
+    return this.http.get<any>(this.ApiUrl+"/technology/detail/"+id);
   }
 
   addTechnology(val:any){
@@ -24,12 +28,15 @@ export class SharedService {
     return this.http.put(this.ApiUrl+"/technology/"+val.Id,val);
   }
 
+  deleteTechnology(val:any){
+    return this.http.delete(this.ApiUrl+"/technology/"+val.id);
+  }
+
   getSearchResultList(val:any){
     return this.http.get<any>(this.ApiUrl+"/technology/search/"+val);
   }
  
   getNounChounks(val:any){
-    console.log(val)
     return this.http.post("http://0.0.0.0:5005/",{ "text": val } );
   }
 

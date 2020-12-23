@@ -8,6 +8,7 @@ import spacy
 api = Api(app)
 nlp = spacy.load('en_core_web_lg') ## Loading model -- en_core_web_lg
 
+#get chunks by passing text
 class getChunks(Resource):
     def post(datas):
         doc = nlp(request.get_json()["text"])

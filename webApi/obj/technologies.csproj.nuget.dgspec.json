@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/mukta/Documents/myProjects/technologies/webApi/technologies.csproj": {}
+    "/Users/mukta/Documents/myProjects/manage-technologies/webApi/technologies.csproj": {}
   },
   "projects": {
-    "/Users/mukta/Documents/myProjects/technologies/webApi/technologies.csproj": {
+    "/Users/mukta/Documents/myProjects/manage-technologies/webApi/technologies.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/mukta/Documents/myProjects/technologies/webApi/technologies.csproj",
+        "projectUniqueName": "/Users/mukta/Documents/myProjects/manage-technologies/webApi/technologies.csproj",
         "projectName": "technologies",
-        "projectPath": "/Users/mukta/Documents/myProjects/technologies/webApi/technologies.csproj",
+        "projectPath": "/Users/mukta/Documents/myProjects/manage-technologies/webApi/technologies.csproj",
         "packagesPath": "/Users/mukta/.nuget/packages/",
-        "outputPath": "/Users/mukta/Documents/myProjects/technologies/webApi/obj/",
+        "outputPath": "/Users/mukta/Documents/myProjects/manage-technologies/webApi/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"

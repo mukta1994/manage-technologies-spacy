@@ -1,0 +1,19 @@
+mat-form-field {
+    display: block;
+}
+
+.search .disabled{
+    cursor:none;
+    background-color: transparent;
+  }
+  
+  .search .disabled:hover{
+    box-shadow: none;
+  }
+
+  .search .dis{
+    cursor:none;
+    background-color: black;
+  }
+  
+

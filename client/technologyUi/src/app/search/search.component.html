@@ -1,20 +1,41 @@
-<div class="row col-md-12">
-    <div class="col-md-8">
-        <input type="text" class="form-control" [(ngModel)]="queryStr" />
+
+<div>
+    <div class="search-sec">
+      <div class="search-bar">
+        <input type="text" [(ngModel)]="queryStr" matInput style="width:100%;position: relative;" (keyup)="handleKeyUp($event)">
+        <button mat-button mat-icon-button (click)="clearSearchField()" class="close-btn" *ngIf="queryStr"><mat-icon>close</mat-icon></button>
+
+      </div>
+      <div type="button" class="search" (click)="getData(queryStr)">
+          Search</div>
+        <!-- <mat-form-field>
+            <input [(ngModel)]="queryStr" class="search" matInput placeholder="Search" autocomplete="off" style="width:100%" (keyup)="handleKeyUp($event)">
+            <button mat-button mat-icon-button matSuffix (click)="clearSearchField()" *ngIf="queryStr">
+              <mat-icon>close</mat-icon>
+            </button>
+          </mat-form-field> -->
+      
+      </div>
+</div>
+   
+
+
+<div *ngFor="let item of SearchResults" style="margin-top: 4px;">
+  <div class="jumbotron">
+    <h1 class="display-4">{{item.name}}</h1>
+    <p>
+      {{item.description}}</p>
+    <p class="lead">
+      <button (click)=generateChunks(item) class="btn btn-primary float-right m-2">generate noun chunks</button>
+    </p>
+    <div *ngIf="Id==item.id">
+      <mat-chip-list aria-label="Fish selection">
+        <mat-chip color="accent" *ngFor="let chunk of Chunks" selected>{{chunk}}</mat-chip>
+      </mat-chip-list>
     </div>
-    <button class="col-md-2" (click)="refreshResultList(queryStr)">Search</button>
+    <hr class="my-4">
+
+  </div>
 </div>
 
-    <div class="card" *ngFor="let item of SearchResults" style="margin: 4px;">
-            <div class="card-body">
-              <h5 class="card-title">{{item.name}}</h5>
-              <p class="card-text">{{item.description}}</p>
-              <button (click)=generateChunks(item) class="btn btn-primary float-right m-2">generate noun chunks</button>
-            </div>
-            <div *ngIf="Id==item.id" >
-                    <hr>
-                    <div *ngFor="let chunk of Chunks"  >
-                           <h5>{{chunk}}</h5> 
-                        </div>
-            </div>
-          </div>
+<div *ngIf="SearchResults.length==0 && queryStr!=null" style="text-align:center"> {{message}}</div>
