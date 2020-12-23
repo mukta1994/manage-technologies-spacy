@@ -23,3 +23,7 @@ p{
 *:focus, *:active {
     outline: none;
 }
+
+.chunk_chip{
+    margin-top: 10px;
+}

@@ -12,7 +12,8 @@ nlp = spacy.load('en_core_web_lg') ## Loading model -- en_core_web_lg
 class getChunks(Resource):
     def post(datas):
         doc = nlp(request.get_json()["text"])
-        chunks=[chunk.text for chunk in doc.noun_chunks]
+        chunks=[{'text':chunk.text,'root_text':chunk.root.text,'dependency_relation':chunk.root.dep_,'root_head_text':chunk.root.head.text}
+                 for chunk in doc.noun_chunks]  
         return jsonify(chunks)
 
 

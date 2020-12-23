@@ -94,7 +94,6 @@ export class SearchComponent implements OnInit {
 
 //get noun chunks by passing description
   generateChunks(item){
-    console.log(item)
     this.service.getNounChounks(item.description).subscribe(data=>{
       this.Chunks=data;
       this.Id=item.id;
@@ -102,6 +101,10 @@ export class SearchComponent implements OnInit {
     (error) => {
       this.toastr.error("Something went wrong with status code: "+error.status)  
     })
+  }
+
+  hideChunks(){
+    this.Chunks=null;
   }
 
 }

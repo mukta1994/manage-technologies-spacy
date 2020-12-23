@@ -22,6 +22,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatInputModule} from '@angular/material/input';
 import { ViewTechComponent } from './technology/view-tech/view-tech.component';
 import { ToastrModule } from 'ngx-toastr';
+import { ChunksInfoComponent } from './chunks-info/chunks-info.component';
+import {MatCardModule} from '@angular/material/card';
+
 
 
 @NgModule({
@@ -31,7 +34,8 @@ import { ToastrModule } from 'ngx-toastr';
     ShowTechComponent,
     AddEditTechComponent,
     SearchComponent,
-    ViewTechComponent
+    ViewTechComponent,
+    ChunksInfoComponent
   ],
   imports: [
     BrowserModule,
@@ -48,6 +52,7 @@ import { ToastrModule } from 'ngx-toastr';
     MatChipsModule,
     MatInputModule,
     MatFormFieldModule,
+    MatCardModule,
     ToastrModule.forRoot()
     ],
   providers: [SharedService],

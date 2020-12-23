@@ -8,12 +8,6 @@
       </div>
       <div type="button" class="search" (click)="getData(queryStr)">
           Search</div>
-        <!-- <mat-form-field>
-            <input [(ngModel)]="queryStr" class="search" matInput placeholder="Search" autocomplete="off" style="width:100%" (keyup)="handleKeyUp($event)">
-            <button mat-button mat-icon-button matSuffix (click)="clearSearchField()" *ngIf="queryStr">
-              <mat-icon>close</mat-icon>
-            </button>
-          </mat-form-field> -->
       
       </div>
 </div>
@@ -27,15 +21,18 @@
       {{item.description}}</p>
     <p class="lead">
       <button (click)=generateChunks(item) class="btn btn-primary float-right m-2">generate noun chunks</button>
+      <button (click)=hideChunks() class="btn btn-primary float-right m-2" *ngIf="Id==item.id && Chunks">hide</button>
     </p>
-    <div *ngIf="Id==item.id">
-      <mat-chip-list aria-label="Fish selection">
-        <mat-chip color="accent" *ngFor="let chunk of Chunks" selected>{{chunk}}</mat-chip>
-      </mat-chip-list>
-    </div>
+
+    <app-chunks-info [Chunks]="Chunks" *ngIf="Id==item.id && Chunks"></app-chunks-info>
+   
     <hr class="my-4">
 
   </div>
+ 
 </div>
+
+
+
 
 <div *ngIf="SearchResults.length==0 && queryStr!=null" style="text-align:center"> {{message}}</div>

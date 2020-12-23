@@ -22,6 +22,7 @@ export class ViewTechComponent implements OnInit {
   Id:String;
   Name:String;
   Description:String;
+  Chunks:any;
 
   ngOnInit(): void {
     this.service.getTechnologyDetail(parseInt(this.id)).subscribe(data=>{
@@ -35,6 +36,20 @@ export class ViewTechComponent implements OnInit {
       console.log(error)
 
     })
+    
+  }
+
+  generateChunks(description){
+    this.service.getNounChounks(description).subscribe(data=>{
+      this.Chunks=data;
+    },
+    (error) => {
+      this.toastr.error("Something went wrong with status code: "+error.status)  
+    })
+  }
+
+  hideChunks(){
+    this.Chunks=null;
   }
 
 
