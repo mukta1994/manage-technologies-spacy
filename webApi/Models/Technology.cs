@@ -73,7 +73,7 @@ namespace WebApi.Models
         }
 
         public void executeStoredProcedure(MySqlCommand cmd,string action){
-              cmd.CommandText = "Technology_Create_Update_delete";
+              cmd.CommandText = "Technology_Create_Update_delete_sp";
              BindParams(cmd);
              BindId(cmd);
              cmd.Parameters.AddWithValue("@tAction", @action);

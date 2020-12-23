@@ -2,7 +2,7 @@
   <MonoDevelop.Ide.ItemProperties.technologies PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.Workbench ActiveDocument="appsettings.json">
     <Files>
-      <File FileName="Models/TechnologyQuery.cs" Line="69" Column="61" />
+      <File FileName="Models/TechnologyQuery.cs" Line="63" Column="1" />
       <File FileName="Program.cs" Line="16" Column="1" />
       <File FileName="Startup.cs" Line="35" Column="1" />
       <File FileName="Models/Technology.cs" />
@@ -12,7 +12,9 @@
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="technologies" expanded="True" selected="True" />
+          <Node name="technologies" expanded="True">
+            <Node name="technologies" selected="True" />
+          </Node>
         </State>
       </Pad>
     </Pads>
@@ -23,7 +25,7 @@
     <BreakpointStore>
       <Breakpoint file="/Users/mukta/Documents/myProjects/manage-technologies/webApi/Controllers/TechnologyController.cs" relfile="Controllers/TechnologyController.cs" line="19" column="1" />
       <Breakpoint file="/Users/mukta/Documents/myProjects/manage-technologies/webApi/Controllers/TechnologyController.cs" relfile="Controllers/TechnologyController.cs" line="23" column="1" />
-      <Breakpoint file="/Users/mukta/Documents/myProjects/manage-technologies/webApi/Models/TechnologyQuery.cs" relfile="Models/TechnologyQuery.cs" line="59" column="1" />
+      <Breakpoint file="/Users/mukta/Documents/myProjects/manage-technologies/webApi/Models/TechnologyQuery.cs" relfile="Models/TechnologyQuery.cs" line="57" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />

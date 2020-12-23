@@ -34,7 +34,7 @@ namespace WebApi.Models
         { 
             using var cmd = Db.Connection.CreateCommand();
 
-            cmd.CommandText = "search";
+            cmd.CommandText = "search_sp";
 
              cmd.Parameters.AddWithValue("@search", @text);
 
@@ -47,7 +47,7 @@ namespace WebApi.Models
             List<Technology>  techtechnologiesList = new List<Technology>();
             List<Pages> pageList = new List<Pages>();
             using var cmd = Db.Connection.CreateCommand();
-            cmd.CommandText = "get_technologies";
+            cmd.CommandText = "get_technologies_sp";
             cmd.Parameters.AddWithValue("@page_Number", @page_num);
             cmd.Parameters.AddWithValue("@rec_per_page", @rec_per_page);
             cmd.Parameters.Add("@total_pages", MySqlDbType.Int32);
