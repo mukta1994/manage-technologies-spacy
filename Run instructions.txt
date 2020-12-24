@@ -1,6 +1,6 @@
 1.Mysql
 I used Mysql database.
-create a new schema and import sql file (technology_database.sql) 
+create a new schema and import sql file (technologies_db_dump.sql) 
 refresh and check. Database will be created.
 
 

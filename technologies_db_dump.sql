@@ -25,7 +25,7 @@ DROP TABLE IF EXISTS `Technologies`;
 CREATE TABLE `Technologies` (
   `Id` int NOT NULL AUTO_INCREMENT,
   `Name` varchar(100) NOT NULL,
-  `Description` varchar(1000) NOT NULL,
+  `Description` varchar(3000) NOT NULL,
   PRIMARY KEY (`Id`),
   FULLTEXT KEY `Name` (`Name`,`Description`),
   FULLTEXT KEY `idx_Technologies_Name` (`Name`),
@@ -153,4 +153,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-12-23 17:40:10
+-- Dump completed on 2020-12-24  1:11:39
