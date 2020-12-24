@@ -11,18 +11,18 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./view-tech.component.css']
 })
 export class ViewTechComponent implements OnInit {
-
-  constructor(private _Activatedroute: ActivatedRoute,
-    private service:SharedService, 
-    private router: Router,
-    private toastr:ToastrService) { }
-
   id = this._Activatedroute.snapshot.paramMap.get("id");
   details: any[];
   Id:String;
   Name:String;
   Description:String;
   Chunks:any;
+
+  constructor(private _Activatedroute: ActivatedRoute,
+    private service:SharedService, 
+    private router: Router,
+    private toastr:ToastrService) { }
+
 
   ngOnInit(): void {
     this.service.getTechnologyDetail(parseInt(this.id)).subscribe(data=>{
@@ -35,10 +35,10 @@ export class ViewTechComponent implements OnInit {
       this.toastr.error("Something went wrong with status code: "+error.status+" Or the technology is not available")  
       console.log(error)
 
-    })
-    
+    }) 
   }
 
+  //call api to get noun chunks of description 
   generateChunks(description){
     this.service.getNounChounks(description).subscribe(data=>{
       this.Chunks=data;

@@ -1,15 +1,13 @@
-<div>
+<div class="view-technology">
     <h1> {{Name}} </h1>
-    <p style="font-size:18px;">
+    <p>
         {{Description}}
     </p>
     <p class="lead">
         <button (click)=generateChunks(Description) class="btn btn-primary float-right m-2">generate noun chunks</button>
         <button (click)=hideChunks() class="btn btn-primary float-right m-2" *ngIf="Chunks">hide</button>
+    </p>
 
-      </p>
-
-      <app-chunks-info [Chunks]="Chunks" *ngIf="Chunks"></app-chunks-info>
-
+    <app-chunks-info [Chunks]="Chunks" *ngIf="Chunks"></app-chunks-info>
 
 </div>

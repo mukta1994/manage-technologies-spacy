@@ -4,15 +4,12 @@
       <div class="search-bar">
         <input type="text" [(ngModel)]="queryStr" matInput style="width:100%;position: relative;" (keyup)="handleKeyUp($event)">
         <button mat-button mat-icon-button (click)="clearSearchField()" class="close-btn" *ngIf="queryStr"><mat-icon>close</mat-icon></button>
-
       </div>
       <div type="button" class="search" (click)="getData(queryStr)">
           Search</div>
       
       </div>
 </div>
-   
-
 
 <div *ngFor="let item of SearchResults" style="margin-top: 4px;">
   <div class="jumbotron">
@@ -31,8 +28,5 @@
   </div>
  
 </div>
-
-
-
 
 <div *ngIf="SearchResults.length==0 && queryStr!=null" style="text-align:center"> {{message}}</div>

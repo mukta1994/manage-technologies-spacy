@@ -72,6 +72,7 @@ namespace WebApi.Models
             });
         }
 
+        //common method which which takes commands to executes stored procedure
         public void executeStoredProcedure(MySqlCommand cmd,string action){
               cmd.CommandText = "Technology_Create_Update_delete_sp";
              BindParams(cmd);
